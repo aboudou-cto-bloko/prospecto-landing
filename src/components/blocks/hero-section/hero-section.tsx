@@ -2,10 +2,12 @@
 
 import { useState } from "react";
 import { Copy, ChevronDown } from "lucide-react";
+import { ScrambleText } from "@/components/ui/scramble-text";
+import { LiquidButton } from "@/components/ui/liquid-button";
 
 const INSTALL_CMD = "curl -fsSL https://raw.githubusercontent.com/aboudou-cto-bloko/prospecto/main/install.sh | bash";
 
-function HeroSection() {
+export default function HeroSection() {
   const [copied, setCopied] = useState(false);
 
   const copyToClipboard = () => {
@@ -16,19 +18,22 @@ function HeroSection() {
 
   return (
     <section id="home" className="max-w-5xl mx-auto px-6 pt-28 pb-20">
+
       {/* Label */}
       <p className="text-xs font-medium uppercase tracking-[0.18em] text-[#455dd3] mb-8">
         GoAfricaOnline · WhatsApp · Bénin & Afrique francophone
       </p>
 
-      {/* Headline */}
+      {/* Headline — scramble staggeré par ligne */}
       <h1
         className="text-6xl md:text-7xl font-bold leading-[1.02] mb-6 max-w-3xl"
         style={{ letterSpacing: "-0.04em" }}
       >
-        Tu prospectes<br />
-        à la main.<br />
-        <span className="text-[#455dd3]">Arrête.</span>
+        <ScrambleText text="Tu prospectes" delay={0}   duration={700} /><br />
+        <ScrambleText text="à la main."   delay={220} duration={700} /><br />
+        <span className="text-[#455dd3]">
+          <ScrambleText text="Arrête."    delay={440} duration={550} />
+        </span>
       </h1>
 
       {/* Subtext */}
@@ -42,21 +47,16 @@ function HeroSection() {
 
       {/* CTAs */}
       <div className="flex flex-col sm:flex-row gap-3 mb-14">
-        <a
-          href="#acheter"
-          className="px-5 py-2.5 bg-[#455dd3] hover:bg-[#3a4fb8] rounded-lg text-sm font-medium transition-colors text-white"
-        >
-          Obtenir une license
-        </a>
+        <LiquidButton href="#acheter">Obtenir une license</LiquidButton>
         <a
           href="#docker"
-          className="px-5 py-2.5 border border-white/10 hover:bg-white/[0.04] rounded-lg text-sm font-medium transition-colors text-[#a0a09a] flex items-center gap-1.5"
+          className="px-5 py-2.5 border border-white/10 hover:bg-white/[0.04] text-sm font-medium transition-colors text-[#a0a09a] flex items-center gap-1.5"
         >
           Comment ça marche <ChevronDown className="w-3.5 h-3.5" />
         </a>
       </div>
 
-      {/* Terminal — juste la commande */}
+      {/* Terminal */}
       <div className="bg-[#0a0a09] border border-white/8 max-w-2xl mb-14">
         <div className="px-5 py-4 font-mono text-xs flex items-center justify-between gap-4">
           <div className="min-w-0">
@@ -73,7 +73,7 @@ function HeroSection() {
         </div>
       </div>
 
-      {/* Dashboard screenshot — sharp */}
+      {/* Dashboard screenshot */}
       <div className="border border-white/8 bg-[#0a0a09] overflow-hidden">
         <div className="border-b border-white/8 px-4 py-2.5 flex items-center gap-2">
           <span className="w-2.5 h-2.5 rounded-full bg-red-500/40" />
@@ -91,5 +91,3 @@ function HeroSection() {
     </section>
   );
 }
-
-export default HeroSection;

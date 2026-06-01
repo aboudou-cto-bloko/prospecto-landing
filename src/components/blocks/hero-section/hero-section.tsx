@@ -57,15 +57,15 @@ export default function HeroSection() {
       </div>
 
       {/* Terminal */}
-      <div className="bg-[#0a0a09] border border-white/8 max-w-2xl mb-14">
-        <div className="px-5 py-4 font-mono text-xs flex items-center justify-between gap-4">
-          <div className="min-w-0">
+      <div className="bg-[#0a0a09] border border-white/8 max-w-2xl mb-14 overflow-hidden">
+        <div className="px-5 py-4 font-mono text-xs flex flex-col sm:flex-row sm:items-center gap-3">
+          <p className="min-w-0 break-all leading-relaxed">
             <span className="text-[#455dd3]/50">$ </span>
-            <span className="text-[#f6f5f4]/70 break-all">{INSTALL_CMD}</span>
-          </div>
+            <span className="text-[#f6f5f4]/70">{INSTALL_CMD}</span>
+          </p>
           <button
             onClick={copyToClipboard}
-            className="flex-shrink-0 flex items-center gap-1.5 px-2.5 py-1 text-xs border border-[#455dd3]/20 hover:bg-[#455dd3]/10 transition-colors text-[#455dd3]"
+            className="self-end sm:self-auto flex-shrink-0 flex items-center gap-1.5 px-2.5 py-1 text-xs border border-[#455dd3]/20 hover:bg-[#455dd3]/10 transition-colors text-[#455dd3]"
           >
             <Copy className="w-3 h-3" />
             {copied ? "Copié !" : "Copier"}

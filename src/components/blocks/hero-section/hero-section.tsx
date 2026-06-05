@@ -5,7 +5,7 @@ import { Copy, ChevronDown } from "lucide-react";
 import { ScrambleText } from "@/components/ui/scramble-text";
 import { LiquidButton } from "@/components/ui/liquid-button";
 
-const INSTALL_CMD = "curl -fsSL https://raw.githubusercontent.com/aboudou-cto-bloko/prospecto/main/install.sh | bash";
+const INSTALL_CMD = "curl -fsSL https://aboudouzinsou.com/install.sh | bash";
 
 export default function HeroSection() {
   const [copied, setCopied] = useState(false);

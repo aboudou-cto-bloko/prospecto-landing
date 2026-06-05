@@ -1,50 +1,75 @@
-import { solutions } from "@/assets/data/landing-content";
+import Image from "next/image";
 
-function SolutionSection() {
+const features = [
+  {
+    tag: "Organiser",
+    title: "Votre pipeline en un coup d'œil",
+    desc: "Kanban 5 statuts — Nouveau, Contacté, Qualifié, Converti, Perdu. Glissez, déposez, avancez. Chaque prospect a son historique, ses tags et ses données personnalisées.",
+    bullets: ["Filtres par statut, tag, source", "Champs personnalisés par prospect", "Import CSV en un clic"],
+    screenshot: "/screenshots/04-prospects.png",
+    url: "prospecto.local:3000/prospects",
+    flip: false,
+  },
+  {
+    tag: "Personnaliser",
+    title: "Le bon message, au bon prospect",
+    desc: "Rédigez un modèle avec des variables dynamiques — {nom}, {site}, {catégorie}. Prospecto remplace automatiquement pour chaque prospect avant l'envoi.",
+    bullets: ["Détection des variables manquantes avant envoi", "Prévisualisation message par message", "Variables personnalisées illimitées"],
+    screenshot: "/screenshots/06-campaign-new.png",
+    url: "prospecto.local:3000/campaigns/new",
+    flip: true,
+  },
+  {
+    tag: "Envoyer",
+    title: "Campagnes WhatsApp depuis votre numéro",
+    desc: "Connectez votre WhatsApp en scannant un QR code. Envoyez des centaines de messages personnalisés sans bot externe ni API payante.",
+    bullets: ["Délai aléatoire entre messages (anti-ban)", "Suivi en temps réel : envoyé, livré, lu", "Compatible WhatsApp et WhatsApp Business"],
+    screenshot: "/screenshots/05-campaigns.png",
+    url: "prospecto.local:3000/campaigns",
+    flip: false,
+  },
+  {
+    tag: "Trouver",
+    title: "Prospects GoAfrica en 1 clic",
+    desc: "Le scraper intégré extrait automatiquement les coordonnées des annuaires GoAfrica Online — nom, téléphone, secteur, ville — et les importe directement dans votre pipeline.",
+    bullets: ["Filtrage par catégorie et ville", "Import direct dans les prospects", "Deduplication automatique"],
+    screenshot: "/screenshots/03-scraper.png",
+    url: "prospecto.local:3000/scrape",
+    flip: true,
+  },
+];
+
+export default function SolutionSection() {
   return (
-    <section className="max-w-5xl mx-auto px-6 py-24">
-      <div className="mb-16">
-        <p className="text-xs font-medium uppercase tracking-[0.18em] text-[#455dd3] mb-5">
-          La solution
-        </p>
-        <h2
-          className="text-4xl md:text-5xl font-bold leading-tight"
-          style={{ letterSpacing: "-0.03em" }}
-        >
-          Automatise de A à Z.
-        </h2>
-        <p className="text-[#615d59] mt-4 text-sm leading-[1.7] max-w-sm">
-          Trois modules interconnectés. Zéro configuration.
-        </p>
-      </div>
-
-      <div className="space-y-5">
-        {solutions.map((item, i) => (
-          <div
-            key={item.title}
-            className="border border-white/8 bg-[#0d0d0c] overflow-hidden"
-          >
-            {/* Window chrome */}
-            <div className="border-b border-white/8 px-4 py-2.5 flex items-center gap-3">
-              <div className="flex items-center gap-1.5">
-                <span className="w-2.5 h-2.5 rounded-full bg-red-500/35" />
-                <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/35" />
-                <span className="w-2.5 h-2.5 rounded-full bg-green-500/35" />
-              </div>
-              <span className="text-xs text-[#615d59] font-mono ml-1">
-                <span className="text-[#455dd3]">{String(i + 1).padStart(2, "0")}</span>
-                {" / "}
-                {item.title}
+    <section id="features" className="bg-black border-b border-white/8 py-24 px-6">
+      <div className="max-w-6xl mx-auto flex flex-col gap-28">
+        {features.map((f) => (
+          <div key={f.tag} className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className={`flex flex-col gap-5 fade-up ${f.flip ? "lg:order-2" : ""}`}>
+              <span className="inline-flex w-fit px-3 py-1 bg-[#191918] border border-white/8 rounded-full text-[11px] font-semibold uppercase tracking-widest text-[#71717a]">
+                {f.tag}
               </span>
+              <h2 className="text-3xl font-bold" style={{ letterSpacing: "-0.02em" }}>{f.title}</h2>
+              <p className="text-[15px] text-[#71717a] leading-[1.65]">{f.desc}</p>
+              <ul className="flex flex-col gap-2">
+                {f.bullets.map((b) => (
+                  <li key={b} className="flex items-center gap-2 text-sm text-[#71717a]">
+                    <svg className="w-4 h-4 shrink-0" style={{ color: "#455dd3" }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    {b}
+                  </li>
+                ))}
+              </ul>
             </div>
-
-            {/* Full screenshot — pas de crop */}
-            <img src={item.src} alt={item.title} className="w-full block" loading="lazy" />
-
-            {/* Caption */}
-            <div className="px-6 py-5 border-t border-white/[0.05]">
-              <h3 className="font-semibold text-[#f6f5f4] mb-1.5 text-sm">{item.title}</h3>
-              <p className="text-sm text-[#615d59] leading-[1.7]">{item.desc}</p>
+            <div className={`browser-frame fade-up fade-up-d1 ${f.flip ? "lg:order-1" : ""}`}>
+              <div className="browser-bar">
+                <div className="browser-dots">
+                  <div className="browser-dot" /><div className="browser-dot" /><div className="browser-dot" />
+                </div>
+                <div className="browser-url">{f.url}</div>
+              </div>
+              <Image src={f.screenshot} alt={f.title} width={1440} height={900} className="w-full object-cover object-top" />
             </div>
           </div>
         ))}
@@ -52,5 +77,3 @@ function SolutionSection() {
     </section>
   );
 }
-
-export default SolutionSection;

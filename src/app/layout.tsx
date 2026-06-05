@@ -2,13 +2,15 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Prospecto — CRM WhatsApp pour le marché africain",
-  description:
-    "Collecte des leads sur GoAfricaOnline, organise-les dans un CRM et envoie des campagnes WhatsApp personnalisées. 5 000 FCFA / mois.",
+  title: "Prospecto — Arrêtez de chercher. Commencez à signer.",
+  description: "CRM de prospection WhatsApp auto-hébergé pour freelancers africains. Gérez vos prospects, lancez vos campagnes, signez plus de clients. 5 000 FCFA/mois.",
+  icons: {
+    icon: "/logo-icon.png",
+    apple: "/apple-touch-icon.png",
+  },
   openGraph: {
-    title: "Prospecto — CRM WhatsApp pour le marché africain",
-    description:
-      "Collecte des leads sur GoAfricaOnline, organise-les dans un CRM et envoie des campagnes WhatsApp personnalisées.",
+    title: "Prospecto — Arrêtez de chercher. Commencez à signer.",
+    description: "CRM de prospection WhatsApp auto-hébergé pour freelancers africains.",
     url: "https://prospecto.aboudouzinsou.site",
     siteName: "Prospecto",
     locale: "fr_FR",

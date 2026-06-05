@@ -4,7 +4,7 @@ import { useState } from "react";
 
 function DockerSection() {
   const [osTab, setOsTab] = useState<"windows" | "mac" | "linux">("windows");
-  const installCommand = "curl -fsSL https://raw.githubusercontent.com/aboudou-cto-bloko/prospecto/main/install.sh | bash";
+  const installCommand = "curl -fsSL https://aboudouzinsou.com/install.sh | bash";
 
   return (
     <section id="docker" className="max-w-5xl mx-auto px-6 py-24 scroll-mt-20">

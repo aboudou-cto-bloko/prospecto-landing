@@ -89,7 +89,7 @@ const TROUBLESHOOTING = [
 
 export default function DownloadSection() {
   const [os, setOs] = useState<OS>("mac-arm");
-  const [version, setVersion] = useState("v1.4.0");
+  const [version, setVersion] = useState("v1.5.0");
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   useEffect(() => {

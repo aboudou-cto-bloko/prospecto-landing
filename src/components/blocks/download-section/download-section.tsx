@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 
 type OS = "mac-arm" | "mac-x64" | "windows" | "unknown";
 
-const RELEASE_BASE = "https://github.com/aboudou-cto-bloko/prospecto/releases/latest/download";
+const RELEASE_BASE = "https://github.com/aboudou-cto-bloko/prospecto-releases/releases/latest/download";
 const VERSION_URL = "https://aboudouzinsou.com/prospecto-version.txt";
 
 function detectOS(): OS {
@@ -153,22 +153,6 @@ export default function DownloadSection() {
         <p className="text-[11px] text-[#71717a]/50 mb-16">
           {version} · {current.sub} · Gratuit pendant 7 jours, puis license requise
         </p>
-
-        {/* Séparateur + option serveur */}
-        <div className="w-full flex items-center gap-4 mb-10">
-          <div className="flex-1 h-px bg-white/6" />
-          <span className="text-xs text-[#71717a]/40">ou pour un déploiement serveur</span>
-          <div className="flex-1 h-px bg-white/6" />
-        </div>
-
-        <div className="bg-[#191918] border border-white/8 rounded-lg px-4 py-3 flex items-center gap-3 w-full max-w-lg mb-16">
-          <svg className="w-4 h-4 text-[#71717a] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-            <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 7.5l3 2.25-3 2.25m4.5 0h3" />
-          </svg>
-          <code className="font-mono text-[12px] text-[#71717a] flex-1 select-all truncate">
-            curl -fsSL https://aboudouzinsou.com/install.sh | bash
-          </code>
-        </div>
 
         {/* Guide troubleshooting */}
         <div className="w-full">

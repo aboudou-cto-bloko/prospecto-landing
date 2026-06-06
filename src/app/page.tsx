@@ -5,7 +5,7 @@ import SolutionSection from "@/components/blocks/solution-section/solution-secti
 import PersonasSection from "@/components/blocks/personas-section/personas-section";
 import PricingSection from "@/components/blocks/pricing-section/pricing-section";
 import FaqSection from "@/components/blocks/faq-section/faq-section";
-import DockerSection from "@/components/blocks/docker-section/docker-section";
+import DownloadSection from "@/components/blocks/download-section/download-section";
 import Footer from "@/components/layout/footer";
 import ScrollAnimations from "@/components/ui/scroll-animations";
 
@@ -20,7 +20,7 @@ export default function LandingPage() {
       <PersonasSection />
       <PricingSection />
       <FaqSection />
-      <DockerSection />
+      <DownloadSection />
       <Footer />
     </div>
   );

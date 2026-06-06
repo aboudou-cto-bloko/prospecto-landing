@@ -15,8 +15,8 @@ function Header() {
           <a href="#acheter" className="text-sm text-[#71717a] hover:text-white transition-colors">Tarifs</a>
           <a href="#faq" className="text-sm text-[#71717a] hover:text-white transition-colors">FAQ</a>
         </div>
-        <a href="#acheter" className="bg-[#455dd3] text-white text-sm font-medium px-4 py-2 rounded-lg hover:opacity-90 transition-opacity">
-          Commencer
+        <a href="#telecharger" className="bg-[#455dd3] text-white text-sm font-medium px-4 py-2 rounded-lg hover:opacity-90 transition-opacity">
+          Télécharger
         </a>
       </div>
     </nav>
